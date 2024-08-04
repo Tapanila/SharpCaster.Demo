@@ -2,7 +2,10 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:chromecastModels="clr-namespace:Sharpcaster.Models;assembly=Sharpcaster"
-             x:Class="SharpCaster.Demo.MainPage">
+             xmlns:vm="clr-namespace:SharpCaster.Demo"
+             x:Class="SharpCaster.Demo.MainPage"
+             x:DataType="vm:MainPageViewModel"
+             >
 
     <ListView ItemsSource="{Binding Data}">
         <ListView.ItemTemplate>
