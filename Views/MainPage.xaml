@@ -6,7 +6,11 @@
              x:Class="SharpCaster.Demo.MainPage"
              x:DataType="vm:MainPageViewModel"
              >
-
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vm:StatusIsEnabledConverter x:Key="StatusToIsEnabledConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ListView ItemsSource="{Binding Data}">
         <ListView.ItemTemplate>
             <DataTemplate>
@@ -15,9 +19,11 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <Label Grid.Column="0" Text="{Binding Name}" />
                         <Label Grid.Column="1" Text="{Binding DeviceUri}" />
+                        <Button IsEnabled="{Binding Status, Converter={StaticResource StatusToIsEnabledConverter}}" Grid.Column="2" Text="Connect" Command="{Binding Source={RelativeSource AncestorType={x:Type vm:MainPageViewModel}}, Path=ConnectCommand}" CommandParameter="{Binding .}" />
                     </Grid>
                 </ViewCell>
             </DataTemplate>

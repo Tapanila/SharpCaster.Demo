@@ -6,10 +6,16 @@
     xmlns:local="clr-namespace:SharpCaster.Demo"
     Shell.FlyoutBehavior="Disabled"
     Title="SharpCaster.Demo">
+    <TabBar>
+        <ShellContent
+            Title="Devices"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="MainPage" />
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        <ShellContent
+            Title="Commands"
+            ContentTemplate="{DataTemplate local:CommandPage}"
+            Route="CommandPage" />
+    </TabBar>
 
 </Shell>
